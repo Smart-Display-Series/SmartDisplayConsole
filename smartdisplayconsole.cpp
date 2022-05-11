@@ -11,15 +11,15 @@ const uint8_t slaveID = 0x7B;
 const int MAX_CATEGORY = 10;
 const QString VERSION = "v0.1.0.0";
 
-// Please define your port name here
-#ifdef Q_PROCESSOR_X86
-const QString portName = "ttyUSB0";     // Windows/Ubuntu
-#else
-const QString portName = "ttymxc7";     // MX6UL-H210
-#endif
+/*
+ * Please define your port name here
+ * You may need to change permission on serial port, for example:
+ *      sudo chmod 666 ttyUSB0
+ */
+const QString portName = "ttyUSB0";     // x86/Raspberry Pi(Ubuntu/Debian)
+//const QString portName = "ttymxc7";   // MX6UL-H210(Yocto)
 
 const int baudrate = QSerialPort::Baud115200;
-
 
 SmartDisplayConsole::SmartDisplayConsole(QWidget *parent)
     : QMainWindow(parent)
